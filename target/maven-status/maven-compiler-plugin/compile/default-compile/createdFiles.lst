@@ -1,1 +1,4 @@
-com/groupa/bankingsystem/Tester.class
+com/groupa/bankingsystem/CustomerResource.class
+com/groupa/bankingsystem/DatabaseClass.class
+com/groupa/bankingsystem/Customer.class
+com/groupa/bankingsystem/CustomerService.class
