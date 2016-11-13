@@ -11,9 +11,18 @@ package com.groupa.bankingsystem;
  */
 public class Account {
 
+    private long accountId;
     private String sortCode;
     private String accountNumber;
     private String balance;
+
+    public long getAccountId() {
+        return accountId;
+    }
+
+    public void setAccountId(long accountId) {
+        this.accountId = accountId;
+    }
 
     public String getSortCode() {
         return sortCode;

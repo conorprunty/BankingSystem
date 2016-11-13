@@ -55,5 +55,17 @@ public class CustomerResource {
     public Customer getCustomer(@PathParam("customerName") String customerName) {
         return customerService.getCustomer(customerName);
     }
+    
+    @GET
+    @Path("/{customerName}/accounts")
+    public Account getCustomerAccounts(@PathParam("customerName") String customerName, Account account) {
+        return customerService.getAccount(customerName);
+    }
+    
+    @POST
+    @Path("/{customerName}/accounts")
+    public Customer addCustomerAccount(@PathParam("customerName") String customerName, Account account) {
+        return customerService.addAccount(customerName, account);
+    }
 
 }
