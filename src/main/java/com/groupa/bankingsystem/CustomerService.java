@@ -55,15 +55,8 @@ public class CustomerService {
         return customers.get(name).getAccount();
     }
 
-    public Customer addAccount(String name, Account account) {
-        Customer cust = customers.get(name);
-        if (cust.getAccount().getAccountId() == 0) {
-            account.setAccountId(1);
-        } else {
-            account.setAccountId(cust.getAccount().getAccountId() + 1);
-        }
-        cust.setAccount(account);
-        return customers.put(cust.getName(), cust);
+    public Customer addAccount(Customer customer, Account account) {
+        customer.setAccount(account);
+        return customers.put(customer.getName(), customer);
     }
-
 }
