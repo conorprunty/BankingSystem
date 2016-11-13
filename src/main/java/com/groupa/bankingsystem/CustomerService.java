@@ -14,31 +14,31 @@ import java.util.Map;
  * @author conorprunty
  */
 public class CustomerService {
-
+    
     private Map<String, Customer> customers = DatabaseClass.getCustomers();
-
+    
     public CustomerService() {
         customers.put("conor", new Customer(1, "conor", "myaddress", "myemail", "mypassword"));
         customers.put("dave", new Customer(2, "dave", "daveaddress", "daveemail", "davepassword"));
         customers.put("kev", new Customer(3, "kev", "kevaddress", "kevemail", "kevpassword"));
-
+        
     }
-
+    
     public List<Customer> getAllCustomers() {
         return new ArrayList<Customer>(customers.values());
-
+        
     }
-
+    
     public Customer getCustomer(String name) {
         return customers.get(name);
     }
-
+    
     public Customer addCustomer(Customer customer) {
         customer.setId(customers.size() + 1);
         customers.put(customer.getName(), customer);
         return customer;
     }
-
+    
     public Customer updateCustomer(Customer customer) {
         if (customer.getName().isEmpty()) {
             return null;
@@ -46,17 +46,24 @@ public class CustomerService {
         customers.put(customer.getName(), customer);
         return customer;
     }
-
+    
     public Customer removeCustomer(String name) {
         return customers.remove(name);
     }
-
+    
     public Account getAccount(String name) {
         return customers.get(name).getAccount();
     }
-
+    
     public Customer addAccount(Customer customer, Account account) {
         customer.setAccount(account);
-        return customers.put(customer.getName(), customer);
+        if (account.getAccountId() == 0) {
+            account.setAccountId(1);
+        } else {
+            account.setAccountId(account.getAccountId() + 1);
+        }
+        
+        customers.put(customer.getName(), customer);
+        return customer;
     }
 }

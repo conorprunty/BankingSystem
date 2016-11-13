@@ -64,8 +64,8 @@ public class CustomerResource {
 
     @POST
     @Path("/{customerName}/account")
-    public Account addCustomerAccount(@PathParam("customerName") String customerName, Account account) {
+    public Customer addCustomerAccount(@PathParam("customerName") String customerName, Account account) {
         customerService.addAccount(customerService.getCustomer(customerName), account);
-        return account;
+        return customerService.getCustomer(customerName);
     }
 }
