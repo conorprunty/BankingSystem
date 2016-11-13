@@ -5,13 +5,15 @@
  */
 package com.groupa.bankingsystem;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author conorprunty
  */
-@XmlRootElement 
+@XmlRootElement
 public class Customer {
 
     private long id;
@@ -19,6 +21,7 @@ public class Customer {
     private String address;
     private String email;
     private String password;
+    private Account account;
 
     public Customer() {
 
@@ -30,6 +33,14 @@ public class Customer {
         this.address = address;
         this.email = email;
         this.password = password;
+    }
+
+    public Account getAccount() {
+        return account;
+    }
+
+    public void setAccount(Account account) {
+        this.account = account;
     }
 
     public long getId() {
