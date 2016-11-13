@@ -14,9 +14,9 @@ import java.util.Map;
  */
 public class DatabaseClass {
 
-    public static Map<Long, Customer> customers = new HashMap<>();
+    public static Map<String, Customer> customers = new HashMap<>();
 
-    public static Map<Long, Customer> getCustomers() {
+    public static Map<String, Customer> getCustomers() {
         return customers;
     }
 

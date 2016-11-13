@@ -15,12 +15,12 @@ import java.util.Map;
  */
 public class CustomerService {
 
-    private Map<Long, Customer> customers = DatabaseClass.getCustomers();
+    private Map<String, Customer> customers = DatabaseClass.getCustomers();
     
     public CustomerService(){
-        customers.put(1L, new Customer(1, "conor","myaddress","myemail","mypassword"));
-        customers.put(2L, new Customer(2, "dave","daveaddress","daveemail","davepassword"));
-        customers.put(3L, new Customer(3, "kev","kevaddress","kevemail","kevpassword"));
+        customers.put("conor", new Customer(1, "conor","myaddress","myemail","mypassword"));
+        customers.put("dave", new Customer(2, "dave","daveaddress","daveemail","davepassword"));
+        customers.put("kev", new Customer(3, "kev","kevaddress","kevemail","kevpassword"));
     }
 
     public List<Customer> getAllCustomers() {
@@ -28,26 +28,26 @@ public class CustomerService {
 
     }
 
-    public Customer getCustomer(long id) {
-        return customers.get(id);
+    public Customer getCustomer(String name) {
+        return customers.get(name);
     }
 
     public Customer addCustomer(Customer customer) {
         customer.setId(customers.size() + 1);
-        customers.put(customer.getId(), customer);
+        customers.put(customer.getName(), customer);
         return customer;
     }
 
     public Customer updateCustomer(Customer customer) {
-        if (customer.getId() <= 0) {
+        if (customer.getName().isEmpty()) {
             return null;
         }
-        customers.put(customer.getId(), customer);
+        customers.put(customer.getName(), customer);
         return customer;
     }
 
-    public Customer removeCustomer(long id) {
-        return customers.remove(id);
+    public Customer removeCustomer(String name) {
+        return customers.remove(name);
     }
 
 }
