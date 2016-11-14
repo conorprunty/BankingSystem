@@ -14,7 +14,7 @@ public class Account {
     private long accountId;
     private String sortCode;
     private String accountNumber;
-    private String balance;
+    private int balance;
 
     public long getAccountId() {
         return accountId;
@@ -40,11 +40,11 @@ public class Account {
         this.accountNumber = accountNumber;
     }
 
-    public String getBalance() {
+    public int getBalance() {
         return balance;
     }
 
-    public void setBalance(String balance) {
+    public void setBalance(int balance) {
         this.balance = balance;
     }
 }

@@ -65,4 +65,14 @@ public class CustomerService {
         customers.put(customer.getName(), customer);
         return customer;
     }
+    
+    public Account updateAccountBalance(Customer customer, int accountId, int amount){
+        customer.getAccountById(accountId).setBalance((customer.getAccountById(accountId).getBalance())+amount);
+        customers.put(customer.getName(), customer);
+        return customer.getAccountById(accountId);
+    }
+    
+    public Account getAccountById(Customer customer, int accountId){
+        return customer.getAccountById(accountId);       
+    }
 }

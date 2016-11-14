@@ -6,7 +6,6 @@
 package com.groupa.bankingsystem;
 
 import java.util.ArrayList;
-import java.util.List;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -21,7 +20,6 @@ public class Customer {
     private String address;
     private String email;
     private String password;
-    //private Account account;
     ArrayList<Account> account = new ArrayList<>();
 
     public Customer() {
@@ -42,6 +40,10 @@ public class Customer {
 
     public void setAccount(ArrayList<Account> account) {
         this.account = account;
+    }
+    
+    public Account getAccountById(int accountId){
+        return account.get(accountId);
     }
 
     public long getId() {

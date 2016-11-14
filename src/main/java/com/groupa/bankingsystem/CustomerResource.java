@@ -56,7 +56,7 @@ public class CustomerResource {
     public Customer getCustomer(@PathParam("customerName") String customerName) {
         return customerService.getCustomer(customerName);
     }
-    
+
     @GET
     @Path("/{customerName}/account")
     public ArrayList<Account> getCustomerAccount(@PathParam("customerName") String customerName) {
@@ -68,5 +68,17 @@ public class CustomerResource {
     public Customer addCustomerAccount(@PathParam("customerName") String customerName, Account account) {
         customerService.addAccount(customerService.getCustomer(customerName), account);
         return customerService.getCustomer(customerName);
+    }
+    
+    @GET
+    @Path("/{customerName}/account/{accountId}")
+    public Account getCustomerIndividualAccount(@PathParam("customerName") String customerName, @PathParam("accountId") int accountId) {
+        return customerService.getAccountById(customerService.getCustomer(customerName), accountId-1);
+    }
+    
+    @PUT
+    @Path("/{customerName}/account/{accountId}")
+    public Account updateAccountBalance(@PathParam("customerName") String customerName, @PathParam("accountId") int accountId, int amount) {
+        return customerService.updateAccountBalance(customerService.getCustomer(customerName), accountId, amount);
     }
 }
