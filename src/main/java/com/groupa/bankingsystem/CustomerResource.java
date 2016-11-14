@@ -5,6 +5,7 @@
  */
 package com.groupa.bankingsystem;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -58,7 +59,7 @@ public class CustomerResource {
     
     @GET
     @Path("/{customerName}/account")
-    public Account getCustomerAccount(@PathParam("customerName") String customerName) {
+    public ArrayList<Account> getCustomerAccount(@PathParam("customerName") String customerName) {
         return customerService.getCustomer(customerName).getAccount();
     }
 
