@@ -41,7 +41,7 @@ public class CustomerResource {
     @PUT
     @Path("/{customerName}")
     public Customer updateCustomer(@PathParam("customerName") String customerName, Customer customer) {
-        customer.setName(customerName);
+        customer.setName(customer.getName());
         return customerService.updateCustomer(customer);
     }
 
@@ -79,6 +79,7 @@ public class CustomerResource {
     @PUT
     @Path("/{customerName}/account/{accountId}")
     public Account updateAccountBalance(@PathParam("customerName") String customerName, @PathParam("accountId") int accountId, int amount) {
-        return customerService.updateAccountBalance(customerService.getCustomer(customerName), accountId, amount);
+        customerService.getAccountById(customerService.getCustomer(customerName), accountId-1).setBalance(amount);
+        return customerService.getAccountById(customerService.getCustomer(customerName), accountId-1);
     }
 }
